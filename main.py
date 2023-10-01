@@ -25,10 +25,9 @@ from collections import deque
 
 
 def depth_first_search(problem):
-    # Initialization for depth first search
     node = Node(problem.init_state)
-    frontier = deque([node])         # stack: append/pop
-    explored = [problem.init_state]  # used as "visited"
+    frontier = deque([node])
+    explored = [problem.init_state]
     while len(frontier) > 0:
         node = frontier.pop()
         if problem.goal_test(node.state):
@@ -41,10 +40,9 @@ def depth_first_search(problem):
 
 
 def breadth_first_search(problem):
-    # Initialization for breadth first search
     node = Node(problem.init_state)
-    frontier = deque([node])         # queue: append/popleft
-    explored = [problem.init_state]  # used as "visited"
+    frontier = deque([node])
+    explored = [problem.init_state]
     while len(frontier) > 0:
         node = frontier.popleft()
         if problem.goal_test(node.state):
@@ -65,10 +63,6 @@ def breadth_first_search(problem):
 
 
 class NQueensProblem(Problem):
-    # This is a subclass of the class Problem.
-    #   See hw2_utils.py for what each method does.
-    # You need to orverride the following methods
-    #   so that it works for NQueenProblem
     
     def __init__(self, n):
         super().__init__(tuple([-1] * n))
@@ -118,10 +112,6 @@ class NQueensProblem(Problem):
 
 
 class FarmerProblem(Problem):
-    # This is a subclass of the class Problem.
-    #   See hw2_utils.py for what each method does.
-    # You need to orverride the following methods
-    #   so that it works for FarmerProblem
     
     def __init__(self, init_state, goal_state = (False, False, False, False)):
         super().__init__(init_state, goal_state)
@@ -185,10 +175,6 @@ class FarmerProblem(Problem):
 
 
 class GraphProblem(Problem):
-    # This is a subclass of the class Problem.
-    #   See hw2_utils.py for what each method does.
-    # You need to orverride the following methods
-    #   so that it works for GraphProblem
 
     def __init__(self, init_state, goal_state, graph):
         super().__init__(init_state, goal_state)
